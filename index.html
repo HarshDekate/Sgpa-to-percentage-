@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semester Percentage Calculator</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        label {
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+        #calculator {
+            width: 90%;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        #calculator h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        input[type="number"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            background-color: #83c3e8;
+            color: #000;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #83c3e8;
+        }
+
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <h1>Semester Percentage Calculator</h1>
+        <label for="semesters">Number of semesters:</label><br>
+        <input type="number" id="semesters" name="semesters" min="2" max="8" required>
+        <label for="sgpa">SGPA:</label><br>
+        <input type="number" id="sgpa" name="sgpa" min="0" max="10" step="0.01" required>
+        <input type="submit" value="Calculate" onclick="calculate()">
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            var semesters = document.getElementById("semesters").value;
+            var sgpa = document.getElementById("sgpa").value;
+
+            var percentage = sgpa * 9.5;
+
+            document.getElementById
+            ("result").innerHTML = "Percentage: " + percentage.toFixed(2) + "%";
+
+            if (semesters > 2) {
+                var total_sgpa = sgpa * semesters;
+                var cgpa = total_sgpa / semesters;
+                var cgpa_percentage = cgpa * 9.5;
+                document.getElementById("result").innerHTML += "<br>CGPA: " + cgpa.toFixed(2) + " (" + cgpa_percentage.toFixed(2) + "%)";
+            }
+        }
+    </script>
+</body>
+</html>
